@@ -7,7 +7,13 @@ public class SW_마을 {
 	static int N, M;
 
 	static void union(int x, int y) {
-		p[y] = x;
+
+		if (p[x] > p[y]) {
+			p[p[y]]=p[x];
+		}
+		else {
+			p[p[x]]=p[y];
+		}
 	}//union
 
 	static int findset(int x) {
