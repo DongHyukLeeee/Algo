@@ -5,9 +5,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-import Algo_230922.Main;
 
-public class 구분구적법 {
+public class BJ_2573_빙산 {
 	static int M, N;
 	static int[][] iceMap;
 	static int[] dx = {-1,1,0,0};
@@ -15,7 +14,7 @@ public class 구분구적법 {
 	static boolean[][] visitice ;
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(input);
-		;
+		
 
 		M = sc.nextInt();
 		N = sc.nextInt();
@@ -27,9 +26,8 @@ public class 구분구적법 {
 				iceMap[i][j]=sc.nextInt();
 			}
 		}
-		//얼음이 몇마을 남았나요?
 		int year;
-		for(year=0; year<=10; year++) {
+		for(year=0; year<=100; year++) {
 		int cnt = 0;
 		visitice = new boolean[M][N];
 			for (int i = 0; i < M; i++) {
@@ -43,18 +41,25 @@ public class 구분구적법 {
 			if(cnt>=2) {
 				break;
 			}
+			else if(cnt==0) {
+				year=0;
+				break;
+			}
 			else {
 				after1year();
 			}
+
 			
 		}
 		
-//		for (int i = 0; i < M; i++) {
-//			for (int j = 0; j < N; j++) {
-//				System.out.printf("%d ",iceMap[i][j]);
-//			}
-//		}
+		for (int i = 0; i < M; i++) {
+			for (int j = 0; j < N; j++) {
+				System.out.printf("%d ",iceMap[i][j]);
+			}
+			System.out.println();
+		}
 		System.out.println(year);
+
 
 	}
 	
@@ -114,11 +119,20 @@ public class 구분구적법 {
 		
 	}
 
-	static String input = "\r\n"
-			+ "5 5\r\n"
-			+ "0 0 0 0 0\r\n"
-			+ "0 1 1 1 0\r\n"
-			+ "0 1 0 1 0\r\n"
-			+ "0 1 1 1 0\r\n"
-			+ "0 0 0 0 0";
+	static String input = "7 9\r\n"
+			+ "\r\n"
+			+ "0 0 0 0 0 0 0 0 0\r\n"
+			+ "\r\n"
+			+ "0 9 5 5 5 5 5 9 0\r\n"
+			+ "\r\n"
+			+ "0 5 9 5 5 5 9 5 0\r\n"
+			+ "\r\n"
+			+ "0 5 5 9 1 9 5 5 0\r\n"
+			+ "\r\n"
+			+ "0 5 9 5 5 5 9 5 0\r\n"
+			+ "\r\n"
+			+ "0 9 5 5 5 5 5 9 0\r\n"
+			+ "\r\n"
+			+ "0 0 0 0 0 0 0 0 0"
+			;
 }
