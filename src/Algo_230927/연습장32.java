@@ -1,9 +1,9 @@
-package Algo_230926.copy;
+package Algo_230927;
 
 import java.util.*;
 import java.io.*;
 
-public class 연습장25 {
+public class 연습장32 {
 	public static void main(String[] args) {
 		
 
