@@ -1,9 +1,9 @@
-package Algo_231001;
+package Algo_231002;
 
 import java.util.*;
 import java.io.*;
 
-public class 연습장25 {
+public class 연습장36 {
 	public static void main(String[] args) {
 		
 
