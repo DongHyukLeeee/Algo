@@ -8,7 +8,7 @@ public class BJ_1149_RGB_LENGTH {
 
 	public static void main(String[] args) {
 		
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(input1);
 		
 		int N = sc.nextInt();
 		
