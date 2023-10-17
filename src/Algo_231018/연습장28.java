@@ -3,11 +3,22 @@ package Algo_231018;
 import java.util.*;
 import java.io.*;
 
-public class 연습장28 {
+public class BJ_11060_점프점프 {
 
 	static int N;
 	static int arr[];
+	
+	static class point{
+		
+		int x,y;
 
+		public point(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+		
+		
+	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(input1);
 
@@ -23,22 +34,28 @@ public class 연습장28 {
 	}
 
 	static int bfs() {
-		Queue<Integer> q = new LinkedList<>();
+		Queue<point> q = new LinkedList<>();
 		
-		q.add(0);
-		int cnt=0;
+		q.add(new point(0, 0));
+		boolean visited[] = new boolean[N];
+		visited[0]=true;
 		while(!q.isEmpty()) {
-			int cur = q.poll();
-			if(cur>N-1) continue;
-			int curNum = arr[cur];
+			point cur = q.poll();
+			int curx = cur.x;
+			int cury = cur.y;
 			
-			if(cur==N-1) {
-				return cnt;
+			if(curx>N-1) continue;
+			int currentVal = arr[curx];
+			
+			if(curx==N-1) {
+				return cury;
 			}
-			if (curNum==0) continue;
-			for(int i=1; i<=N-1&&i<=curNum; i++) {
-				q.add(cur+i);
-				cnt++;
+			if (currentVal==0) continue;
+			for(int i=1; i+curx<=N-1&&i<=currentVal; i++) {
+				if(!visited[curx+i]) {
+				q.add(new point(curx+i, cury+1));
+				visited[curx+i]=true;
+				}
 			}
 			
 			
