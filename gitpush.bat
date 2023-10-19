@@ -12,7 +12,7 @@
 
 :loop
 
-	cd C:\Users\qwer9\OneDrive\바탕 화면\git\Algo
+	cd C:\Users\qwer9\OneDrive\바탕 화면\Algo\Algo
 
 	git add --all
 
