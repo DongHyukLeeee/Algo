@@ -25,34 +25,38 @@ public class BJ_14426_접두사찾기 {
 			first_char[i] = aa[i].charAt(0);
 		}
 		int cnt = 0;
-		for (int i = 5
-				; i < M; i++) {
-			int idx = Arrays.binarySearch(first_char, bb[i].charAt(0)) ;
-			if(idx<0) continue;
-			char temp[] = Arrays.copyOf(first_char, N);
-			
-			while(true) {
-				boolean flag = true;
-				Arrays.sort(temp);
-				idx=Arrays.binarySearch(temp, bb[i].charAt(0));
-	
-				
-				if(idx<0) { break;}
-				for(int j=0; j<bb[i].length(); j++) {
-					if(bb[i].charAt(j)!=aa[idx].charAt(j)) {
-						flag = false;
+		for (int i = 0; i < M; i++) {
+			int idx = Arrays.binarySearch(first_char, bb[i].charAt(0));
+			if (idx < 0)
+				continue;
+			char a = bb[i].charAt(0);
+
+			aa: for (int j = idx; j >= 0; j--) {
+				if (j != idx) {
+					if (a != first_char[j])
+						{break aa;}
+					
+					if(aa[j].substring(0,bb[i].length()).equals(bb[i])) {
+						 cnt++;
 					}
+					
 				}
-				temp[idx]='0';
-//				System.out.println(i +"idx="+idx+ Arrays.toString(temp));
-				if(flag) { cnt++;
-				System.out.println("i is " + i);}
 			}
-			
+			bb: for (int j = idx; j < N; j++) {
+
+				if (a != first_char[j])
+					break bb;
+				
+				if(aa[j].substring(0,bb[i].length()).equals(bb[i])) {
+					 cnt++;
+				}
+				
+			}
 
 		}
 		System.out.println(cnt);
-//		System.out.println(Arrays.toString(aa));
+		System.out.println(Arrays.toString(aa));
+		System.out.println(Arrays.toString(first_char));
 	}
 
 	static String input1 = "5 10\r\n" + "baekjoononlinejudge\r\n" + "startlink\r\n" + "codeplus\r\n"
