@@ -5,7 +5,7 @@ import java.util.*;
 import java.io.*;
 
 	
-public class 연습장5 {
+public class BJ1389_케빈베이컨_S1 {
 	
 	static int V,E;
 	static ArrayList<Integer>[] adjList;
